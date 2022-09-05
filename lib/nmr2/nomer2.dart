@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:http/http.dart' as http;
 
 class JawabanNomer2 extends StatefulWidget {
@@ -54,7 +55,7 @@ class _JawabanNomer2State extends State<JawabanNomer2> {
                   itemBuilder: (contex, index) {
                     return Card(
                       child: Container(
-                        height: 100,
+                        height: 200,
                         width: MediaQuery.of(context).size.width,
                         padding: EdgeInsets.all(8),
                         // child: Image.network(
@@ -71,9 +72,9 @@ class _JawabanNomer2State extends State<JawabanNomer2> {
                                 Row(
                                   children: [
                                     Image.network(
-                                      "https://via.placeholder.com/150/771796",
-                                      height: 10,
-                                      width: 10,
+                                      "${snapshot.data![index].thumbnailUrl}.png",
+                                      height: 150,
+                                      width: 150,
                                     ),
                                     Container(
                                       width: 200,

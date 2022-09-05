@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:http/http.dart' as http;
+import 'package:test_mge/nmr2/detail_produk.dart';
 
 class JawabanNomer3 extends StatefulWidget {
   const JawabanNomer3({Key? key}) : super(key: key);
@@ -52,41 +53,50 @@ class _JawabanNomer2State extends State<JawabanNomer3> {
               child: ListView.builder(
                   itemCount: snapshot.data!.length,
                   itemBuilder: (contex, index) {
-                    return Card(
-                      child: Container(
-                        height: 100,
-                        width: MediaQuery.of(context).size.width,
-                        padding: EdgeInsets.all(8),
-                        // child: Image.network(
-                        //   snapshot.data![index].thumbnailUrl,
-                        //   height: 100,
-                        //   width: 100,
-                        // ),
-                        child: Wrap(
-                          direction: Axis.vertical,
-                          children: <Widget>[
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Row(
-                                  children: [
-                                    Image.network(
-                                      "https://thumbs.dreamstime.com/b/thank-you-mama-paper-letters-saying-rustic-wooden-background-51901335.jpg",
-                                      height: 10,
-                                      width: 10,
-                                    ),
-                                    Container(
-                                      width: 200,
-                                      child: Text(
-                                        snapshot.data![index].title,
-                                        overflow: TextOverflow.visible,
+                    return InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: ((context) => DetailProduct(
+                                    mama: snapshot.data![index]))));
+                      },
+                      child: Card(
+                        child: Container(
+                          height: 120,
+                          width: MediaQuery.of(context).size.width,
+                          padding: EdgeInsets.all(8),
+                          // child: Image.network(
+                          //   snapshot.data![index].thumbnailUrl,
+                          //   height: 100,
+                          //   width: 100,
+                          // ),
+                          child: Wrap(
+                            direction: Axis.vertical,
+                            children: <Widget>[
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    children: [
+                                      Image.network(
+                                        "${snapshot.data![index].thumbnailUrl}.png",
+                                        height: 100,
+                                        width: 100,
                                       ),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ],
+                                      Container(
+                                        width: 200,
+                                        child: Text(
+                                          snapshot.data![index].title,
+                                          overflow: TextOverflow.visible,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     );

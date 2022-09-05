@@ -423,12 +423,7 @@ class Vehicle {
 
 // ignore: empty_constructor_bodies
 class Car {
-  var nama;
-  var kapasitasMesin;
-  var roda;
-  var merek;
-  var tahun_pembuatan;
-  var nomor_rangka;
+  String nama, kapasitasMesin, roda, merek, tahun_pembuatan, nomor_rangka;
 
   Car(this.nama, this.kapasitasMesin, this.roda, this.merek, this.nomor_rangka,
       this.tahun_pembuatan);
